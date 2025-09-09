@@ -1,0 +1,22 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next
+/out
+/.vercel
+
+# Testing / Coverage
+/coverage
+
+# Env
+.env.local
+.env*.local
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/settings.json
+.idea/

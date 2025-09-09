@@ -1,0 +1,19 @@
+{
+  "name": "Your Name",
+  "title": "Software Engineer",
+  "location": "City, Country",
+  "photo": "/images/profile/avatar.webp",
+  "tagline": "I build fast, accessible web apps with great UX.",
+  "availability": "Open to work",
+  "languagesSpoken": ["English"],
+  "social": [
+    { "label": "Website", "url": "https://your-domain.example" },
+    { "label": "Facebook", "url": "https://facebook.com/your.handle" },
+    { "label": "Instagram", "url": "https://instagram.com/your.handle" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/your-handle" },
+    { "label": "GitHub", "url": "https://github.com/your-handle" },
+    { "label": "Gmail", "url": "mailto:you@gmail.com" },
+    { "label": "Phone", "url": "tel:+1234567890" }
+  ],
+  "resumeUrl": "/resume.pdf"
+}

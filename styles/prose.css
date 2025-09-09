@@ -1,0 +1,63 @@
+/* MDX/Prose styling (dark-mode aware) */
+.prose {
+  color: rgb(var(--foreground));
+}
+
+.dark .prose {
+  color: rgb(var(--foreground));
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+.prose h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-top: 1.25em;
+}
+.prose h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-top: 1.25em;
+}
+
+.prose p {
+  margin: 0.8em 0;
+  line-height: 1.75;
+  color: rgb(var(--foreground) / 0.9);
+}
+
+.prose a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+}
+
+.prose pre {
+  background: rgb(2 6 23 / 0.9);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+}
+
+.dark .prose pre {
+  background: rgb(2 6 23);
+}

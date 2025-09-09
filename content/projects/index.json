@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Sample Project",
+    "slug": "sample-project",
+    "summary": "A performant web app demonstrating SSR, caching, and animations.",
+    "cover": "/images/projects/sample-cover.webp",
+    "tags": ["web", "frontend"],
+    "stack": ["Next.js", "TypeScript", "Tailwind"],
+    "links": {
+      "live": "https://your-domain.example/projects/sample-project",
+      "repo": "https://github.com/your-handle/sample-project"
+    },
+    "start": "2024-01",
+    "end": "2024-03"
+  },
+  {
+    "title": "Another Project",
+    "slug": "another-project",
+    "summary": "Backend API with authentication and Postgres.",
+    "cover": "/images/projects/sample-cover.webp",
+    "tags": ["backend"],
+    "stack": ["Node.js", "PostgreSQL", "Prisma"],
+    "links": {
+      "repo": "https://github.com/your-handle/another-project"
+    },
+    "start": "2023-09",
+    "end": "2023-12"
+  }
+]

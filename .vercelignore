@@ -1,0 +1,14 @@
+# Exclude local-only stuff from Vercel upload
+.git/
+.github/
+.vscode/
+coverage/
+**/*.map
+**/*.test.*
+**/__tests__/**
+**/__mocks__/**
+
+# Docs & design assets
+**/*.sketch
+**/*.fig
+**/*.psd

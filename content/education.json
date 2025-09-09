@@ -1,0 +1,44 @@
+[
+  {
+    "level": "School",
+    "institute": "ABC High School",
+    "program": "Matriculation (Science)",
+    "start": "2014-08",
+    "end": "2016-05",
+    "location": "City",
+    "media": {
+      "logo": "/images/institutes-logos/school.svg",
+      "photo": "/images/institutes/school.webp",
+      "alt": "ABC High School campus"
+    },
+    "highlights": ["Top 5% in mathematics", "Robotics club lead"]
+  },
+  {
+    "level": "College",
+    "institute": "XYZ College",
+    "program": "FSc Pre-Engineering",
+    "start": "2016-08",
+    "end": "2018-05",
+    "location": "City",
+    "media": {
+      "logo": "/images/institutes-logos/college.svg",
+      "photo": "/images/institutes/college.webp",
+      "alt": "XYZ College building"
+    },
+    "highlights": ["STEM society volunteer", "Physics olympiad participant"]
+  },
+  {
+    "level": "University",
+    "institute": "DEF University",
+    "program": "BS Computer Science",
+    "start": "2018-09",
+    "end": "2022-06",
+    "location": "City",
+    "media": {
+      "logo": "/images/institutes-logos/university.svg",
+      "photo": "/images/institutes/university.webp",
+      "alt": "DEF University main gate"
+    },
+    "highlights": ["Graduated with distinction", "Capstone in Next.js"]
+  }
+]
