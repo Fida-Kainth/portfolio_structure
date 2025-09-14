@@ -1,5 +1,6 @@
-// app/(site)/experience/page.tsx
 import ExperienceTimeline from '@/components/sections/experience-timeline';
+
+export const metadata = { title: 'Experience' };
 
 export default function ExperiencePage() {
   return (

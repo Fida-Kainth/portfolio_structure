@@ -1,7 +1,6 @@
-// app/(site)/page.tsx
 import Hero from '@/components/sections/hero';
+import HomeHighlights from '@/components/sections/home-highlights';
 import SkillsMarquee from '@/components/sections/skills-marquee';
-// (optionally) import ProjectsGrid, etc.
 
 export default function HomePage() {
   return (
@@ -10,7 +9,7 @@ export default function HomePage() {
       <div className="mt-10">
         <SkillsMarquee />
       </div>
-      {/* <ProjectsGrid /> ... */}
+      <HomeHighlights />
     </>
   );
 }

@@ -1,4 +1,3 @@
-// components/sections/experience-timeline.tsx
 import { getExperience } from '@/lib/content';
 
 export default async function ExperienceTimeline() {
@@ -16,15 +15,12 @@ export default async function ExperienceTimeline() {
               {x.start} → {x.end}
             </span>
           </div>
-
           {x.location && <p className="mt-1 text-sm text-muted-foreground">{x.location}</p>}
-
           <ul className="mt-2 list-disc pl-5">
             {x.bullets.map((b) => (
               <li key={b}>{b}</li>
             ))}
           </ul>
-
           {x.stack?.length ? (
             <p className="mt-3 text-sm text-muted-foreground">Stack: {x.stack.join(' • ')}</p>
           ) : null}

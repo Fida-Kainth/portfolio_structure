@@ -1,10 +1,6 @@
-// components/sections/education-timeline.tsx
-'use client';
+import Image from 'next/image';
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-
-type EducationItem = {
+type Education = {
   level: 'School' | 'College' | 'University';
   institute: string;
   program?: string;
@@ -13,65 +9,55 @@ type EducationItem = {
   location?: string;
   media?: { logo?: string; photo?: string; alt?: string };
   highlights?: string[];
-  href?: string; // optional explicit link override
 };
 
-export default function EducationTimeline({ items }: { items: EducationItem[] }) {
+export default function EducationTimeline({ items }: { items: Education[] }) {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      {items.map((e, i) => {
-        const years = e.start && e.end ? `${e.start} – ${e.end}` : e.start || e.end || '';
-        const slug =
-          e.institute
-            ?.toLowerCase()
-            .replace(/\s+/g, '-')
-            .replace(/[^a-z0-9-]/g, '') || '';
-        const to = e.href ?? (slug ? `/education/${slug}` : undefined);
+    <ol className="relative border-l pl-6">
+      {items.map((e, i) => (
+        <li key={`${e.level}-${i}`} className="mb-10 ml-2">
+          <div className="absolute -left-2.5 mt-2 h-2.5 w-2.5 rounded-full border bg-background" />
 
-        return (
-          <motion.article
-            key={`${e.level}-${e.institute}-${i}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20% 0% -10% 0%' }}
-            transition={{ duration: 0.35, delay: i * 0.06 }}
-            className="rounded-2xl border p-4"
-          >
-            <div className="text-xs uppercase text-blue-600">{e.level}</div>
-
-            <h3 className="mt-1 text-lg font-medium">
-              {e.institute}
-              {e.program ? (
-                <span className="ml-2 text-sm text-muted-foreground">• {e.program}</span>
-              ) : null}
+          <div className="flex items-center gap-3">
+            {e.media?.logo && (
+              <Image
+                src={e.media.logo}
+                alt={e.media.alt || e.institute}
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-full border bg-white object-contain p-1"
+              />
+            )}
+            <h3 className="text-lg font-semibold">
+              {e.level}: <span className="text-muted-foreground">{e.institute}</span>
             </h3>
+          </div>
 
-            {(years || e.location) && (
-              <p className="text-sm text-muted-foreground">
-                {years}
-                {e.location ? ` • ${e.location}` : ''}
-              </p>
-            )}
+          <p className="mt-1 text-sm text-muted-foreground">
+            {e.program ? `${e.program} • ` : ''}
+            {e.start && e.end ? `${e.start} – ${e.end}` : e.start || e.end}
+            {e.location ? ` • ${e.location}` : ''}
+          </p>
 
-            {e.highlights?.length ? (
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-                {e.highlights.map((h, j) => (
-                  <li key={j}>{h}</li>
-                ))}
-              </ul>
-            ) : null}
+          {e.highlights?.length ? (
+            <ul className="mt-2 list-disc pl-6 text-sm text-muted-foreground">
+              {e.highlights.map((h) => (
+                <li key={h}>{h}</li>
+              ))}
+            </ul>
+          ) : null}
 
-            {to && (
-              <Link
-                href={to as any}
-                className="mt-3 inline-block text-sm underline underline-offset-4"
-              >
-                View details
-              </Link>
-            )}
-          </motion.article>
-        );
-      })}
-    </div>
+          {e.media?.photo && (
+            <Image
+              src={e.media.photo}
+              alt={e.media.alt || e.institute}
+              width={600}
+              height={340}
+              className="mt-3 rounded-xl border object-cover"
+            />
+          )}
+        </li>
+      ))}
+    </ol>
   );
 }
