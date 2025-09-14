@@ -1,7 +1,7 @@
 export default function ContactPanel({
-  email = 'you@gmail.com',
-  phone = '+1234567890',
-  location = 'City, Country',
+  email = 'fidakainth@gmail.com',
+  phone = '+923160641406',
+  location = 'Faisalabad, Pakistan',
 }: {
   email?: string;
   phone?: string;

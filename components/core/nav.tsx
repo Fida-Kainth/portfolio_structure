@@ -1,37 +1,28 @@
+// components/core/nav.tsx
 'use client';
 
+import { mainNav } from '@/config/navigation';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const links = [
-  { href: '/about', label: 'About' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/education', label: 'Education' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/uses', label: 'Uses' },
-];
 
 export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-      {links.map((l) => {
-        const active =
-          l.href === '/'
-            ? pathname === '/'
-            : pathname === l.href || pathname.startsWith(`${l.href}/`);
-
+    <nav className="flex items-center gap-4 text-sm font-medium">
+      {mainNav.map(({ href, label }) => {
+        const active = pathname === href;
         return (
           <Link
-            key={l.href}
-            href={l.href}
-            aria-current={active ? 'page' : undefined}
-            className={`rounded-lg px-3 py-2 text-sm transition
-              ${active ? 'bg-muted text-foreground' : 'text-muted-foreground hover:bg-muted'}`}
+            key={href}
+            href={href}
+            className={
+              active
+                ? 'text-foreground'
+                : 'text-muted-foreground hover:text-foreground transition-colors'
+            }
           >
-            {l.label}
+            {label}
           </Link>
         );
       })}

@@ -12,8 +12,8 @@ export default function ContactPage() {
       </form>
       <p className="mt-6 text-sm text-muted-foreground">
         Or email me at{' '}
-        <a className="underline" href="mailto:you@gmail.com">
-          you@gmail.com
+        <a className="underline" href="mailto:fidakainth@gmail.com">
+          fidakainth@gmail.com
         </a>
       </p>
     </main>

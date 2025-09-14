@@ -1,19 +1,22 @@
 {
-  "name": "Your Name",
+  "name": "Fida Hussain Kainth",
   "title": "Software Engineer",
-  "location": "City, Country",
+  "location": "Faisalabad, Pakistan",
   "photo": "/images/profile/avatar.webp",
   "tagline": "I build fast, accessible web apps with great UX.",
   "availability": "Open to work",
   "languagesSpoken": ["English"],
   "social": [
-    { "label": "Website", "url": "https://your-domain.example" },
-    { "label": "Facebook", "url": "https://facebook.com/your.handle" },
-    { "label": "Instagram", "url": "https://instagram.com/your.handle" },
-    { "label": "LinkedIn", "url": "https://linkedin.com/in/your-handle" },
-    { "label": "GitHub", "url": "https://github.com/your-handle" },
-    { "label": "Gmail", "url": "mailto:you@gmail.com" },
-    { "label": "Phone", "url": "tel:+1234567890" }
+    { "label": "website", "url": "https://your-domain.example" },
+    { "label": "facebook", "url": "https://www.facebook.com/share/1ScbKvcYsX/" },
+    {
+      "label": "instagram",
+      "url": "https://www.instagram.com/fida_kainth?igsh=MTFsazJkenIyeTdoaQ=="
+    },
+    { "label": "linkedin", "url": "https://www.linkedin.com/in/fida-kainth" },
+    { "label": "github", "url": "https://github.com/Fida-Kainth" },
+    { "label": "gmail", "url": "mailto:fidakainth@gmail.com" },
+    { "label": "phone", "url": "tel:+923160641406" }
   ],
   "resumeUrl": "/resume.pdf"
 }

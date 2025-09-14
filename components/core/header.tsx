@@ -1,3 +1,4 @@
+// components/core/header.tsx
 import Link from 'next/link';
 import Container from './container';
 import Nav from './nav';
@@ -9,7 +10,7 @@ export default function Header() {
       <Container className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <Link href="/" className="text-base font-semibold tracking-tight hover:opacity-90">
-            YourName
+            Fida Hussain Kainth
           </Link>
           <span className="hidden text-xs text-muted-foreground sm:inline">
             / Software Engineer

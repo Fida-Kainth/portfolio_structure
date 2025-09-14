@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* app/globals.css */
+@import 'tailwindcss';
 
 /* Light/Dark theme tokens (works nicely with shadcn/ui if added later) */
 :root {
@@ -48,4 +47,65 @@ body {
 }
 .border {
   border-color: rgb(var(--border));
+}
+
+/* Light/Dark theme tokens (works nicely with shadcn/ui if added later) */
+:root {
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+
+  --muted: 243 244 246;
+  --muted-foreground: 107 114 128;
+
+  --border: 229 231 235;
+  --ring: 59 130 246;
+}
+
+.dark {
+  --background: 2 6 23;
+  --foreground: 226 232 240;
+
+  --muted: 15 23 42;
+  --muted-foreground: 148 163 184;
+
+  --border: 30 41 59;
+  --ring: 56 189 248;
+}
+
+/* Map tokens to Tailwind-style utility via CSS variables */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+/* Helper classes (optional) mimicking shadcn/ui tokens */
+.bg-background {
+  background-color: rgb(var(--background));
+}
+.text-foreground {
+  color: rgb(var(--foreground));
+}
+.text-muted-foreground {
+  color: rgb(var(--muted-foreground));
+}
+.border {
+  border-color: rgb(var(--border));
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
 }
