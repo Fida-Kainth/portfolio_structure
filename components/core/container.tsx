@@ -1,10 +1,12 @@
-type ElementTag = keyof JSX.IntrinsicElements;
+import React from 'react';
+
+type ElementTag = keyof React.JSX.IntrinsicElements;
 
 type ContainerProps<T extends ElementTag = 'div'> = {
   as?: T;
   className?: string;
   children: React.ReactNode;
-} & Omit<JSX.IntrinsicElements[T], 'className' | 'children'>;
+} & Omit<React.JSX.IntrinsicElements[T], 'className' | 'children'>;
 
 /**
  * Responsive page container with sensible paddings and a max width.

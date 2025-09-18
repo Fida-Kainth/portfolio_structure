@@ -30,7 +30,7 @@ export default function LottiePlayer({
         const res = await fetch(src);
         const json = await res.json();
         if (ref.current) {
-          anim = lottie.loadAnimation({
+          anim = (lottie as any).loadAnimation({
             container: ref.current,
             renderer: 'svg',
             loop,

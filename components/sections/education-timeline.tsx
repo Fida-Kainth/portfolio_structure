@@ -13,51 +13,69 @@ type Education = {
 
 export default function EducationTimeline({ items }: { items: Education[] }) {
   return (
-    <ol className="relative border-l pl-6">
-      {items.map((e, i) => (
-        <li key={`${e.level}-${i}`} className="mb-10 ml-2">
-          <div className="absolute -left-2.5 mt-2 h-2.5 w-2.5 rounded-full border bg-background" />
+    <div className="relative">
+      {/* ✨ UI polish - Left rail with checkpoints */}
+      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 opacity-30" />
+      
+      <ol className="space-y-8">
+        {items.map((e, i) => (
+          <li key={`${e.level}-${i}`} className="relative animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+            {/* ✨ UI polish - Timeline checkpoint */}
+            <div className="absolute left-5 top-6 w-3 h-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 border-2 border-background shadow-lg" />
+            
+            <div className="ml-12">
+              <div className="card p-6 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  {e.media?.logo && (
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={e.media.logo}
+                        alt={e.media.alt || e.institute}
+                        width={40}
+                        height={40}
+                        className="h-10 w-10 rounded-full border-2 border-white/20 bg-white/5 object-contain p-1"
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {e.level}: <span className="text-muted-foreground">{e.institute}</span>
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {e.program ? `${e.program} • ` : ''}
+                      {e.start && e.end ? `${e.start} – ${e.end}` : e.start || e.end}
+                      {e.location ? ` • ${e.location}` : ''}
+                    </p>
+                  </div>
+                </div>
 
-          <div className="flex items-center gap-3">
-            {e.media?.logo && (
-              <Image
-                src={e.media.logo}
-                alt={e.media.alt || e.institute}
-                width={32}
-                height={32}
-                className="h-8 w-8 rounded-full border bg-white object-contain p-1"
-              />
-            )}
-            <h3 className="text-lg font-semibold">
-              {e.level}: <span className="text-muted-foreground">{e.institute}</span>
-            </h3>
-          </div>
+                {e.highlights?.length ? (
+                  <ul className="space-y-2 mb-4">
+                    {e.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 flex-shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
 
-          <p className="mt-1 text-sm text-muted-foreground">
-            {e.program ? `${e.program} • ` : ''}
-            {e.start && e.end ? `${e.start} – ${e.end}` : e.start || e.end}
-            {e.location ? ` • ${e.location}` : ''}
-          </p>
-
-          {e.highlights?.length ? (
-            <ul className="mt-2 list-disc pl-6 text-sm text-muted-foreground">
-              {e.highlights.map((h) => (
-                <li key={h}>{h}</li>
-              ))}
-            </ul>
-          ) : null}
-
-          {e.media?.photo && (
-            <Image
-              src={e.media.photo}
-              alt={e.media.alt || e.institute}
-              width={600}
-              height={340}
-              className="mt-3 rounded-xl border object-cover"
-            />
-          )}
-        </li>
-      ))}
-    </ol>
+                {e.media?.photo && (
+                  <div className="mt-4 overflow-hidden rounded-xl">
+                    <Image
+                      src={e.media.photo}
+                      alt={e.media.alt || e.institute}
+                      width={600}
+                      height={340}
+                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }

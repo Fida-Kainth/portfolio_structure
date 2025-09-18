@@ -3,14 +3,15 @@ export default function AboutPage() {
     <main className="container mx-auto max-w-3xl px-4 py-16 prose prose-neutral dark:prose-invert">
       <h1>About</h1>
       <p>
-        I’m a software engineer who loves building fast, accessible web apps. I focus on clean
-        architecture, delightful UX, and measurable impact.
+        I’m a full stack developer passionate about creating scalable, responsive web applications.
+        I focus on clean UI design, smooth functionality, and reliable backend systems that deliver
+        real value.
       </p>
       <h2>Highlights</h2>
       <ul>
-        <li>Performance-minded: ships Lighthouse 95+ and Core Web Vitals green</li>
-        <li>Strong frontend foundations: React, Next.js, TypeScript, Tailwind</li>
-        <li>Comfortable with backend: APIs, databases, auth, CI/CD</li>
+        <li>Proficient in MERN stack: MongoDB, Express, React, Node.js</li>
+        <li>Strong frontend foundations: JavaScript, React, standard CSS, responsive design</li>
+        <li>Backend skills: APIs, databases, authentication, and deployment</li>
       </ul>
     </main>
   );

@@ -1,4 +1,4 @@
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 function toTitle(slug: string) {
   return slug
@@ -7,8 +7,9 @@ function toTitle(slug: string) {
     .join(' ');
 }
 
-export default function ProjectCaseStudy({ params }: Props) {
-  const title = toTitle(params.slug);
+export default async function ProjectCaseStudy({ params }: Props) {
+  const { slug } = await params;
+  const title = toTitle(slug);
   return (
     <main className="container mx-auto max-w-3xl px-4 py-16 prose prose-neutral dark:prose-invert">
       <h1>{title}</h1>

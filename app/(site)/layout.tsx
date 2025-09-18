@@ -1,21 +1,10 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '../globals.css';
+import Header from '@/components/core/header';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Software Engineer Portfolio',
-  description: 'Projects, education, experience, and contact info.',
-  icons: { icon: '/favicon.ico' },
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <div className="min-h-screen bg-background text-foreground antialiased">{children}</div>
-      </body>
-    </html>
+    <div className="min-h-screen bg-site-gradient text-foreground antialiased">
+      <Header />
+      <main>{children}</main>
+    </div>
   );
 }

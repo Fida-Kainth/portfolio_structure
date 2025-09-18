@@ -1,44 +1,47 @@
 [
   {
-    "level": "School",
-    "institute": "ABC High School",
-    "program": "Matriculation (Science)",
-    "start": "2014-08",
-    "end": "2016-05",
-    "location": "City",
+    "level": "University",
+    "institute": "FAST National University of Computer and Emerging Sciences, Chiniot-Faisalabad Campus",
+    "program": "BS Software Engineering",
+    "start": "2021-09",
+    "end": "2025-06",
+    "location": "Faisalabad, Pakistan",
     "media": {
-      "logo": "/images/institutes-logos/school.svg",
-      "photo": "/images/institutes/school.webp",
-      "alt": "ABC High School campus"
+      "logo": "/images/institutes-logos/university.jpg",
+      "photo": "/images/institutes/university.webp",
+      "alt": "FAST National University of Computer and Emerging Sciences, Chiniot-Faisalabad Campus main gate"
     },
-    "highlights": ["Top 5% in mathematics", "Robotics club lead"]
+    "highlights": [
+      "Teacher Assistant of Software Re-Engineering",
+      " Member of FAST-NUCES SUKHAN Society"
+    ]
   },
   {
     "level": "College",
-    "institute": "XYZ College",
-    "program": "FSc Pre-Engineering",
-    "start": "2016-08",
-    "end": "2018-05",
-    "location": "City",
+    "institute": "Government Graduate College of Science, Samanabad, Faisalabad",
+    "program": "FSc Pre-Medical & FSc Pre-Engineering Both Groups",
+    "start": "2018-09",
+    "end": "2021-10",
+    "location": "Faisalabad, Pakistan",
     "media": {
-      "logo": "/images/institutes-logos/college.svg",
+      "logo": "/images/institutes-logos/college.jpg",
       "photo": "/images/institutes/college.webp",
-      "alt": "XYZ College building"
+      "alt": "Government Graduate College of Science, Samanabad, Faisalabad building"
     },
-    "highlights": ["STEM society volunteer", "Physics olympiad participant"]
+    "highlights": ["Synthetic Chemist ", " College Football Team Player"]
   },
   {
-    "level": "University",
-    "institute": "DEF University",
-    "program": "BS Computer Science",
-    "start": "2018-09",
-    "end": "2022-06",
-    "location": "City",
+    "level": "School",
+    "institute": "Laboratory High School University of Agriculture Faisalabad",
+    "program": "Matriculation (Science)",
+    "start": "2016-03",
+    "end": "2018-05",
+    "location": "Faisalabad, Pakistan",
     "media": {
-      "logo": "/images/institutes-logos/university.svg",
-      "photo": "/images/institutes/university.webp",
-      "alt": "DEF University main gate"
+      "logo": "/images/institutes-logos/school.jpg",
+      "photo": "/images/institutes/school.webp",
+      "alt": "Laboratory High School University of Agriculture Faisalabad campus"
     },
-    "highlights": ["Graduated with distinction", "Capstone in Next.js"]
+    "highlights": ["BISE Faisalabad Biology Science Score 85%", "Football Team Leader"]
   }
 ]

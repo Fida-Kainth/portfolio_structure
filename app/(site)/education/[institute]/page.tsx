@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-type Props = { params: { institute: string } };
+type Props = { params: Promise<{ institute: string }> };
 
 const MAP: Record<string, { title: string; photo: string; desc: string; highlights?: string[] }> = {
   school: {
@@ -23,8 +23,9 @@ const MAP: Record<string, { title: string; photo: string; desc: string; highligh
   },
 };
 
-export default function InstitutePage({ params }: Props) {
-  const data = MAP[params.institute];
+export default async function InstitutePage({ params }: Props) {
+  const { institute } = await params;
+  const data = MAP[institute];
   if (!data) {
     return (
       <main className="container mx-auto max-w-3xl px-4 py-16">

@@ -1,16 +1,16 @@
 [
   {
-    "company": "Tech Co.",
-    "role": "Software Engineering Intern",
+    "company": "ENCRYPTIX New Delhi India",
+    "role": "Full Stack Developer Intern",
     "type": "Internship",
-    "start": "2024-06",
-    "end": "2024-09",
+    "start": "2025-05",
+    "end": "2025-07",
     "location": "Remote",
     "bullets": [
-      "Built analytics dashboard; reduced load time by 25%",
-      "Implemented CI checks and increased test coverage to 85%",
-      "Collaborated with design to ship 3 features"
+      "Developed and optimized a job Board Style web app using MERN stack",
+      "Built responsive UI components with React and CSS for better user experience",
+      "Integrated REST APIs and improved backend functionality with Node.js and Express"
     ],
-    "stack": ["Next.js", "TypeScript", "Tailwind", "Node.js"]
+    "stack": ["Node.js", "JavaScript", "Tailwind", "React", "MongoDB", "Express.js", "HTML", "CSS"]
   }
 ]
