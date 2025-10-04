@@ -25,5 +25,33 @@
     },
     "start": "2023-09",
     "end": "2023-12"
+  },
+  {
+    "title": "E-Commerce Platform",
+    "slug": "ecommerce-platform",
+    "summary": "Full-stack e-commerce solution with payment integration and admin dashboard.",
+    "cover": "/images/projects/sample-cover.webp",
+    "tags": ["web", "fullstack", "ecommerce"],
+    "stack": ["React", "Node.js", "MongoDB", "Stripe"],
+    "links": {
+      "live": "https://your-domain.example/projects/ecommerce-platform",
+      "repo": "https://github.com/your-handle/ecommerce-platform"
+    },
+    "start": "2024-02",
+    "end": "2024-05"
+  },
+  {
+    "title": "Task Management App",
+    "slug": "task-management-app",
+    "summary": "Collaborative task management tool with real-time updates and team features.",
+    "cover": "/images/projects/sample-cover.webp",
+    "tags": ["web", "frontend", "collaboration"],
+    "stack": ["Vue.js", "Firebase", "Tailwind CSS"],
+    "links": {
+      "live": "https://your-domain.example/projects/task-management-app",
+      "repo": "https://github.com/your-handle/task-management-app"
+    },
+    "start": "2023-11",
+    "end": "2024-01"
   }
 ]

@@ -5,6 +5,16 @@ type Project = { title: string; slug: string; tags: string[] };
 const projects: Project[] = [
   { title: 'Sample Project', slug: 'sample-project', tags: ['web', 'frontend'] },
   { title: 'Another Project', slug: 'another-project', tags: ['backend'] },
+  {
+    title: 'E-Commerce Platform',
+    slug: 'ecommerce-platform',
+    tags: ['web', 'fullstack', 'ecommerce'],
+  },
+  {
+    title: 'Task Management App',
+    slug: 'task-management-app',
+    tags: ['web', 'frontend', 'collaboration'],
+  },
 ];
 
 export default function ProjectsPage() {

@@ -13,7 +13,7 @@ export type ContactPayload = {
 
 export async function sendContactEmail(payload: ContactPayload) {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL || 'you@gmail.com';
+  const to = process.env.CONTACT_TO_EMAIL || 'fidakainth@gmail.com';
   const from = process.env.CONTACT_FROM_EMAIL || 'Portfolio <onboarding@resend.dev>';
 
   // If no API key, just log and pretend OK (useful in dev)

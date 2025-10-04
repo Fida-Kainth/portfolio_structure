@@ -23,7 +23,7 @@ export default function PrivacyPage() {
 
       <h2>Contact</h2>
       <p>
-        For privacy questions, email <a href="mailto:you@gmail.com">you@gmail.com</a>.
+        For privacy questions, email <a href="mailto:fidakainth@gmail.com">fidakainth@gmail.com</a>.
       </p>
     </main>
   );

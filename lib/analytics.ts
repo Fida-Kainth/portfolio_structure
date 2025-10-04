@@ -1,36 +1,133 @@
-import React from 'react';
+// lib/analytics.ts
+'use client';
 
-/**
- * Safe no-op analytics that won’t crash builds if you haven't installed anything.
- * Swap with real providers later (Vercel Analytics, Plausible, GA4).
- */
+// Google Analytics 4
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
-export function VercelAnalytics() {
-  // If you later add: import { Analytics } from '@vercel/analytics/react';
-  // return <Analytics />;
-  return null;
-}
+// Track page views
+export const pageview = (url: string) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url,
+    });
+  }
+};
 
-export function Plausible({ domain }: { domain?: string }) {
-  if (!domain) return null;
-  return <script defer data-domain={domain} src="https://plausible.io/js/script.js" />;
-}
+// Track custom events
+export const event = ({
+  action,
+  category,
+  label,
+  value,
+}: {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+}) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
+  }
+};
 
-export function GoogleAnalytics({ id }: { id?: string }) {
-  if (!id) return null;
-  return (
-    <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${id}');
-          `,
-        }}
-      />
-    </>
-  );
+// Performance monitoring
+export const trackPerformance = () => {
+  if (typeof window !== 'undefined' && 'performance' in window) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const navigation = performance.getEntriesByType(
+          'navigation',
+        )[0] as PerformanceNavigationTiming;
+        const paint = performance.getEntriesByType('paint');
+
+        const metrics = {
+          // Core Web Vitals
+          lcp: 0, // Largest Contentful Paint
+          fid: 0, // First Input Delay
+          cls: 0, // Cumulative Layout Shift
+
+          // Other metrics
+          fcp: 0, // First Contentful Paint
+          ttfb: navigation.responseStart - navigation.requestStart, // Time to First Byte
+          dom_load: navigation.domContentLoadedEventEnd - navigation.fetchStart,
+          page_load: navigation.loadEventEnd - navigation.fetchStart,
+        };
+
+        // Get FCP
+        const fcpEntry = paint.find((entry) => entry.name === 'first-contentful-paint');
+        if (fcpEntry) {
+          metrics.fcp = fcpEntry.startTime;
+        }
+
+        // Track performance metrics
+        event({
+          action: 'performance_metrics',
+          category: 'Performance',
+          label: 'Page Load',
+          value: Math.round(metrics.page_load),
+        });
+
+        // Log to console in development
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Performance Metrics:', metrics);
+        }
+      }, 0);
+    });
+  }
+};
+
+// Track user interactions
+export const trackInteraction = (element: string, action: string) => {
+  event({
+    action: action,
+    category: 'User Interaction',
+    label: element,
+  });
+};
+
+// Track project views
+export const trackProjectView = (projectName: string) => {
+  event({
+    action: 'view_project',
+    category: 'Portfolio',
+    label: projectName,
+  });
+};
+
+// Track contact form submissions
+export const trackContactForm = (method: string) => {
+  event({
+    action: 'contact_form_submit',
+    category: 'Contact',
+    label: method,
+  });
+};
+
+// Track social media clicks
+export const trackSocialClick = (platform: string) => {
+  event({
+    action: 'social_media_click',
+    category: 'Social',
+    label: platform,
+  });
+};
+
+// Track resume downloads
+export const trackResumeDownload = () => {
+  event({
+    action: 'resume_download',
+    category: 'Portfolio',
+    label: 'Resume',
+  });
+};
+
+// Declare gtag function for TypeScript
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
 }

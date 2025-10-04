@@ -1,8 +1,8 @@
 // components/sections/hero.tsx
 import { getProfile } from '@/lib/content';
-import { Facebook, Github, Globe, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SocialButtons from './social-buttons';
 
 export default async function Hero() {
   const profile = await getProfile();
@@ -14,16 +14,21 @@ export default async function Hero() {
 
       <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:text-left">
         <div className="relative">
-          {/* ✨ UI polish - Gradient halo avatar */}
-          <div className="absolute -inset-4 rounded-full bg-gradient-conic from-indigo-500 via-purple-500 to-pink-500 opacity-75 blur-2xl animate-pulse-soft" />
-          <div className="absolute -inset-2 rounded-full bg-gradient-conic from-indigo-400 via-purple-400 to-pink-400 opacity-50 blur-xl" />
+          {/* ✨ Enhanced glowing border effect */}
+          <div className="absolute -inset-6 rounded-full bg-gradient-conic from-indigo-500 via-purple-500 to-pink-500 opacity-80 blur-3xl animate-pulse-soft" />
+          <div className="absolute -inset-4 rounded-full bg-gradient-conic from-indigo-400 via-purple-400 to-pink-400 opacity-60 blur-2xl" />
+          <div className="absolute -inset-2 rounded-full bg-gradient-conic from-indigo-300 via-purple-300 to-pink-300 opacity-40 blur-xl" />
+          <div className="absolute -inset-1 rounded-full bg-gradient-conic from-indigo-200 via-purple-200 to-pink-200 opacity-30 blur-lg" />
           <Image
             src={profile.photo || '/images/profile/avatar.webp'}
-            alt={profile.name || 'Avatar'}
-            width={148}
-            height={148}
-            className="relative h-36 w-36 rounded-full border-2 border-white/20 shadow-2xl ring-4 ring-white/10 md:h-40 md:w-40"
+            alt={`${profile.name || 'Fida Hussain Kainth'} - Software Engineer Profile Picture`}
+            width={200}
+            height={200}
+            className="relative h-48 w-48 rounded-full border-4 border-white/30 shadow-2xl ring-8 ring-white/20 md:h-56 md:w-56 lg:h-64 lg:w-64"
             priority
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
           />
         </div>
 
@@ -48,16 +53,10 @@ export default async function Hero() {
 
           {/* ✨ UI polish - Improved CTA buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-            <Link
-              href="/projects"
-              className="btn-primary text-sm"
-            >
+            <Link href="/projects" className="btn-primary text-sm">
               View Projects
             </Link>
-            <Link
-              href="/contact"
-              className="btn-secondary text-sm"
-            >
+            <Link href="/contact" className="btn-secondary text-sm">
               Hire Me
             </Link>
             {profile.resumeUrl && (
@@ -73,52 +72,7 @@ export default async function Hero() {
           </div>
 
           {/* ✨ UI polish - Round social icons with tooltips */}
-          {Array.isArray(profile.social) && profile.social.length > 0 && (
-            <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-              {profile.social.map((s, i) => {
-                const label = (s.label || '').toLowerCase();
-
-                // Map labels to icon components
-                const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-                  website: Globe,
-                  gmail: Mail,
-                  phone: Phone,
-                  github: Github,
-                  linkedin: Linkedin,
-                  instagram: Instagram,
-                  facebook: Facebook,
-                };
-
-                const Icon = iconMap[label];
-
-                return (
-                  <a
-                    key={i}
-                    href={s.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={`group relative inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-200 hover:scale-110 hover:shadow-lg ${
-                      Icon ? 'hover:shadow-indigo-500/25' : ''
-                    }`}
-                    aria-label={s.label}
-                    title={s.label}
-                  >
-                    {Icon ? (
-                      <Icon className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    ) : (
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                        {s.label.charAt(0).toUpperCase()}
-                      </span>
-                    )}
-                    {/* Tooltip */}
-                    <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                      {s.label}
-                    </span>
-                  </a>
-                );
-              })}
-            </div>
-          )}
+          <SocialButtons social={profile.social || []} />
         </div>
       </div>
     </section>

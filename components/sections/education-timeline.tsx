@@ -16,13 +16,17 @@ export default function EducationTimeline({ items }: { items: Education[] }) {
     <div className="relative">
       {/* ✨ UI polish - Left rail with checkpoints */}
       <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 opacity-30" />
-      
+
       <ol className="space-y-8">
         {items.map((e, i) => (
-          <li key={`${e.level}-${i}`} className="relative animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+          <li
+            key={`${e.level}-${i}`}
+            className="relative animate-fade-up"
+            style={{ animationDelay: `${i * 0.1}s` }}
+          >
             {/* ✨ UI polish - Timeline checkpoint */}
             <div className="absolute left-5 top-6 w-3 h-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 border-2 border-background shadow-lg" />
-            
+
             <div className="ml-12">
               <div className="card p-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
@@ -65,9 +69,9 @@ export default function EducationTimeline({ items }: { items: Education[] }) {
                     <Image
                       src={e.media.photo}
                       alt={e.media.alt || e.institute}
-                      width={600}
-                      height={340}
-                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      width={1000}
+                      height={600}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
